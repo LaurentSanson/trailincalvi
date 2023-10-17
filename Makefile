@@ -1,5 +1,5 @@
 .DEFAULT_GOAL=help
-project-name := Example
+project-name := Trail in Calvi
 
 .PHONY: help
 

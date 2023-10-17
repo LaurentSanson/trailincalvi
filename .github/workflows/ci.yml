@@ -1,8 +1,9 @@
 name: CI
 on: [push]
 env:
-  MYSQL_ROOT_PASSWORD: password
-  MYSQL_DATABASE: example
+    MYSQL_DATABASE: trailincalvi
+    MYSQL_USER: tic
+    MYSQL_PASSWORD: tic
 jobs:
   lint:
     name: Lint
@@ -45,11 +46,14 @@ jobs:
         image: mysql:latest
         env:
           MYSQL_ALLOW_EMPTY_PASSWORD: false
-          MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD
+          MYSQL_USER: $MYSQL_USER
+          MYSQL_PASSWORD: $MYSQL_PASSWORD
           MYSQL_DATABASE: $MYSQL_DATABASE
         ports:
           - 3306/tcp
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+      maildev:
+          image: maildev/maildev
     strategy:
       fail-fast: true
       matrix:
@@ -71,6 +75,9 @@ jobs:
       - name: Start mysql service
         run: sudo systemctl start mysql
 
+      - name: Start maildev service
+        run: docker run -d -p 1080:1080 -p 1025:1025 maildev/maildev
+
       - name: Get Composer Cache Directory
         id: composer-cache
         run: echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
@@ -85,12 +92,17 @@ jobs:
       - name: Install Composer dependencies
         run: composer install --prefer-dist --optimize-autoloader
 
+      - name: Build Yarn dependencies
+        run: |
+          yarn install
+          yarn build
+
       - name: Prepare database
         run: |
           php bin/console doctrine:database:create --if-not-exists
           php bin/console doctrine:schema:update --force
         env:
-          DATABASE_URL: mysql://root:$MYSQL_ROOT_PASSWORD@127.0.0.1:${{ job.services.mysql.ports['3306'] }}/$MYSQL_DATABASE
+          DATABASE_URL: mysql://$MYSQL_USER:$MYSQL_PASSWORD@127.0.0.1:${{ job.services.mysql.ports['3306'] }}/$MYSQL_DATABASE
 
       - name: Run functionnal and unit tests
         run: |
@@ -98,4 +110,5 @@ jobs:
           php -d xdebug.mode=coverage ./vendor/bin/paratest --coverage-html=./coverage --coverage-clover=./coverage/clover.xml
 #          php -d xdebug.mode=coverage ./vendor/bin/coverage-check ./coverage/clover.xml 95
         env:
-          DATABASE_URL: mysql://root:$MYSQL_ROOT_PASSWORD@127.0.0.1:${{ job.services.mysql.ports['3306'] }}/$MYSQL_DATABASE
+          DATABASE_URL: mysql://$MYSQL_USER:$MYSQL_PASSWORD@127.0.0.1:${{ job.services.mysql.ports['3306'] }}/$MYSQL_DATABASE
+          MAILER_DSN: smtp://127.0.0.1:1025

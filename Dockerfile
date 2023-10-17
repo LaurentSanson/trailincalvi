@@ -29,8 +29,8 @@ RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | bash -  \
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 ENV COMPOSER_ALLOW_SUPERUSER=1
 
-RUN mkdir /var/www/exemple
+RUN mkdir /var/www/trailincalvi
 
-WORKDIR /var/www/exemple
+WORKDIR /var/www/trailincalvi
 
 RUN npm install --global yarn

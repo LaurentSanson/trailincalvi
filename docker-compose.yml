@@ -11,8 +11,10 @@ services:
     ports:
       - "3306:3306"
     environment:
-      MYSQL_DATABASE: "example"
-      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_DATABASE: "trailincalvi"
+      MYSQL_USER: tic
+      MYSQL_PASSWORD: tic
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
       MYSQL_ROOT_HOST: '%'
 
   maildev:
@@ -20,19 +22,19 @@ services:
     container_name: maildev-container
     command: bin/maildev --web 80 --smtp 25 --hide-extensions STARTTLS
     ports:
-      - "8081:80"
+      - "1080:80"
 
   php:
     build:
       context: .
     container_name: php-container
     volumes:
-      - ./:/var/www/exemple
+      - ./:/var/www/trailincalvi
       - .docker/php/custom-xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
     ports:
       - "9000:9000"
     environment:
-      DATABASE_URL: mysql://root:@localhost:3306/exemple?serverVersion=${MYSQL_VERSION:-13}
+        DATABASE_URL: mysql://tic:tic@mysql-container:3306/trailincalvi?serverVersion=${MYSQL_VERSION:-13}
 
   nginx:
     image: nginx:stable-alpine
@@ -40,7 +42,7 @@ services:
     ports:
       - "8000:80"
     volumes:
-      - ./:/var/www/exemple
+      - ./:/var/www/trailincalvi
       - .docker/nginx/dev.conf:/etc/nginx/conf.d/default.conf
     depends_on:
       - php

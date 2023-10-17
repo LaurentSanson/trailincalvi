@@ -1,5 +1,5 @@
 {
-    "name": "template/example",
+    "name": "template/trailincalvi",
     "description": "A Docker based Symfony template",
     "type": "project",
     "license": "proprietary",
@@ -22,6 +22,7 @@
         "symfony/framework-bundle": "6.3.*",
         "symfony/proxy-manager-bridge": "6.3.*",
         "symfony/runtime": "6.3.*",
+        "symfony/security-bundle": "6.3.*",
         "symfony/twig-bundle": "6.3.*",
         "symfony/webpack-encore-bundle": "^v1.16.0",
         "symfony/yaml": "6.3.*",
