@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "88d400cc27117b1edc85ffa0ab62c697",
+    "content-hash": "223ba11433e80a193205d4ce2c7a68ca",
     "packages": [
         {
             "name": "LaurentSanson/local-php-security-checker",

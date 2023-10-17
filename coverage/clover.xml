@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1697563011">
+  <project timestamp="1697563011">
+    <file name="/var/www/trailincalvi/src/Entity/Media.php">
+      <class name="App\Entity\Media" namespace="global">
+        <metrics complexity="7" methods="7" coveredmethods="7" conditionals="0" coveredconditionals="0" statements="10" coveredstatements="10" elements="17" coveredelements="17"/>
+      </class>
+      <line num="25" type="method" name="getId" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="27" type="stmt" count="1"/>
+      <line num="30" type="method" name="getName" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="32" type="stmt" count="1"/>
+      <line num="35" type="method" name="setName" visibility="public" complexity="1" crap="1" count="2"/>
+      <line num="37" type="stmt" count="2"/>
+      <line num="39" type="stmt" count="2"/>
+      <line num="42" type="method" name="getFilename" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="44" type="stmt" count="1"/>
+      <line num="47" type="method" name="setFilename" visibility="public" complexity="1" crap="1" count="2"/>
+      <line num="49" type="stmt" count="2"/>
+      <line num="51" type="stmt" count="2"/>
+      <line num="54" type="method" name="getAltText" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="56" type="stmt" count="1"/>
+      <line num="59" type="method" name="setAltText" visibility="public" complexity="1" crap="1" count="2"/>
+      <line num="61" type="stmt" count="2"/>
+      <line num="63" type="stmt" count="2"/>
+      <metrics loc="66" ncloc="66" classes="1" methods="7" coveredmethods="7" conditionals="0" coveredconditionals="0" statements="10" coveredstatements="10" elements="17" coveredelements="17"/>
+    </file>
+    <file name="/var/www/trailincalvi/src/Entity/Post.php">
+      <class name="App\Entity\Post" namespace="global">
+        <metrics complexity="16" methods="16" coveredmethods="16" conditionals="0" coveredconditionals="0" statements="23" coveredstatements="23" elements="39" coveredelements="39"/>
+      </class>
+      <line num="44" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="46" type="stmt" count="1"/>
+      <line num="47" type="stmt" count="1"/>
+      <line num="50" type="method" name="getId" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="52" type="stmt" count="1"/>
+      <line num="55" type="method" name="getTitle" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="57" type="stmt" count="1"/>
+      <line num="60" type="method" name="setTitle" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="62" type="stmt" count="1"/>
+      <line num="64" type="stmt" count="1"/>
+      <line num="67" type="method" name="getSlug" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="69" type="stmt" count="1"/>
+      <line num="72" type="method" name="setSlug" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="74" type="stmt" count="1"/>
+      <line num="76" type="stmt" count="1"/>
+      <line num="79" type="method" name="getContent" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="81" type="stmt" count="1"/>
+      <line num="84" type="method" name="setContent" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="86" type="stmt" count="1"/>
+      <line num="88" type="stmt" count="1"/>
+      <line num="91" type="method" name="getCreatedAt" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="93" type="stmt" count="1"/>
+      <line num="96" type="method" name="getUpdatedAt" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="98" type="stmt" count="1"/>
+      <line num="101" type="method" name="isPublished" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="103" type="stmt" count="1"/>
+      <line num="106" type="method" name="setIsPublished" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="108" type="stmt" count="1"/>
+      <line num="110" type="stmt" count="1"/>
+      <line num="113" type="method" name="getFeaturedText" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="115" type="stmt" count="1"/>
+      <line num="118" type="method" name="setFeaturedText" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="120" type="stmt" count="1"/>
+      <line num="122" type="stmt" count="1"/>
+      <line num="125" type="method" name="getFeaturedImage" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="127" type="stmt" count="1"/>
+      <line num="130" type="method" name="setFeaturedImage" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="132" type="stmt" count="1"/>
+      <line num="134" type="stmt" count="1"/>
+      <metrics loc="137" ncloc="137" classes="1" methods="16" coveredmethods="16" conditionals="0" coveredconditionals="0" statements="23" coveredstatements="23" elements="39" coveredelements="39"/>
+    </file>
+    <file name="/var/www/trailincalvi/src/Entity/User.php">
+      <class name="App\Entity\User" namespace="global">
+        <metrics complexity="9" methods="9" coveredmethods="8" conditionals="0" coveredconditionals="0" statements="14" coveredstatements="13" elements="23" coveredelements="21"/>
+      </class>
+      <line num="27" type="method" name="getId" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="29" type="stmt" count="1"/>
+      <line num="32" type="method" name="getEmail" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="34" type="stmt" count="1"/>
+      <line num="37" type="method" name="setEmail" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="39" type="stmt" count="1"/>
+      <line num="41" type="stmt" count="1"/>
+      <line num="44" type="method" name="getUserIdentifier" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="46" type="stmt" count="1"/>
+      <line num="49" type="method" name="getRoles" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="51" type="stmt" count="1"/>
+      <line num="53" type="stmt" count="1"/>
+      <line num="55" type="stmt" count="1"/>
+      <line num="58" type="method" name="setRoles" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="60" type="stmt" count="1"/>
+      <line num="62" type="stmt" count="1"/>
+      <line num="65" type="method" name="getPassword" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="67" type="stmt" count="1"/>
+      <line num="70" type="method" name="setPassword" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="72" type="stmt" count="1"/>
+      <line num="74" type="stmt" count="1"/>
+      <line num="77" type="method" name="eraseCredentials" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="81" type="stmt" count="0"/>
+      <metrics loc="83" ncloc="80" classes="1" methods="9" coveredmethods="8" conditionals="0" coveredconditionals="0" statements="14" coveredstatements="13" elements="23" coveredelements="21"/>
+    </file>
+    <file name="/var/www/trailincalvi/src/EventListener/PostSlugCreator.php">
+      <class name="App\EventListener\PostSlugCreator" namespace="global">
+        <metrics complexity="2" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
+      </class>
+      <line num="14" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="16" type="stmt" count="1"/>
+      <line num="18" type="method" name="prePersist" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="20" type="stmt" count="1"/>
+      <metrics loc="23" ncloc="23" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
+    </file>
+    <file name="/var/www/trailincalvi/src/Kernel.php">
+      <class name="App\Kernel" namespace="global">
+        <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      </class>
+      <metrics loc="12" ncloc="12" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+    </file>
+    <file name="/var/www/trailincalvi/src/Repository/MediaRepository.php">
+      <class name="App\Repository\MediaRepository" namespace="global">
+        <metrics complexity="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="0" elements="2" coveredelements="0"/>
+      </class>
+      <line num="19" type="method" name="__construct" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="21" type="stmt" count="0"/>
+      <metrics loc="24" ncloc="16" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="0" elements="2" coveredelements="0"/>
+    </file>
+    <file name="/var/www/trailincalvi/src/Repository/PostRepository.php">
+      <class name="App\Repository\PostRepository" namespace="global">
+        <metrics complexity="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="0" elements="2" coveredelements="0"/>
+      </class>
+      <line num="19" type="method" name="__construct" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="21" type="stmt" count="0"/>
+      <metrics loc="24" ncloc="16" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="0" elements="2" coveredelements="0"/>
+    </file>
+    <file name="/var/www/trailincalvi/src/Repository/UserRepository.php">
+      <class name="App\Repository\UserRepository" namespace="global">
+        <metrics complexity="3" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="6" coveredstatements="0" elements="8" coveredelements="0"/>
+      </class>
+      <line num="24" type="method" name="__construct" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="26" type="stmt" count="0"/>
+      <line num="32" type="method" name="upgradePassword" visibility="public" complexity="2" crap="6" count="0"/>
+      <line num="34" type="stmt" count="0"/>
+      <line num="35" type="stmt" count="0"/>
+      <line num="38" type="stmt" count="0"/>
+      <line num="39" type="stmt" count="0"/>
+      <line num="40" type="stmt" count="0"/>
+      <metrics loc="43" ncloc="30" classes="1" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="6" coveredstatements="0" elements="8" coveredelements="0"/>
+    </file>
+    <metrics files="8" loc="412" ncloc="380" classes="7" methods="38" coveredmethods="33" conditionals="0" coveredconditionals="0" statements="57" coveredstatements="48" elements="95" coveredelements="81"/>
+  </project>
+</coverage>

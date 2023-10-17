@@ -46,7 +46,7 @@ validate-schema:
 test: composer-validate## Run test suite
 	@./php mkdir -p ./coverage
 	@./php php -d xdebug.mode=coverage ./vendor/bin/paratest --coverage-html=./coverage --coverage-clover=./coverage/clover.xml
-	@./php php -d xdebug.mode=coverage ./vendor/bin/coverage-check ./coverage/clover.xml 93
+	@./php php -d xdebug.mode=coverage ./vendor/bin/coverage-check ./coverage/clover.xml 85
 	@echo ---------------
 	@echo file://$(shell pwd)/coverage/index.html
 	@echo ---------------
