@@ -1,0 +1,101 @@
+name: CI
+on: [push]
+env:
+  MYSQL_ROOT_PASSWORD: password
+  MYSQL_DATABASE: example
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Validate composer.json and composer.lock
+        run: composer validate
+
+      - name: Get composer cache directory
+        id: composer-cache
+        run: echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+
+      - name: Cache composer dependencies
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: ${{ runner.os }}-composer-
+
+      - name: Install Composer dependencies
+        run: composer install --no-progress --prefer-dist --optimize-autoloader
+
+      - name: PHP Stan
+        run: ./vendor/bin/phpstan analyze -l max --no-progress  ./src --ansi
+
+      - name: Security Checker
+        run: make security-checker
+
+      - name: PHP-CS-Fixer
+        run: ./vendor/bin/php-cs-fixer fix --diff --config=.php-cs-fixer.dist.php -v --dry-run --using-cache no --ansi
+  tests:
+    needs: lint
+    name: Tests
+    runs-on: ubuntu-latest
+    services:
+      mysql:
+        image: mysql:latest
+        env:
+          MYSQL_ALLOW_EMPTY_PASSWORD: false
+          MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD
+          MYSQL_DATABASE: $MYSQL_DATABASE
+        ports:
+          - 3306/tcp
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+    strategy:
+      fail-fast: true
+      matrix:
+        php-versions: ['8.2']
+    steps:
+      - name: Git checkout placeholder-service
+        uses: actions/checkout@v3
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-versions }}
+          coverage: xdebug
+          tools: composer:v2
+          extensions: mbstring, xml, ctype, iconv, intl, pdo_sqlite, dom, filter, gd, iconv, json, mbstring, pdo, xdebug
+        env:
+          update: true
+
+      - name: Start mysql service
+        run: sudo systemctl start mysql
+
+      - name: Get Composer Cache Directory
+        id: composer-cache
+        run: echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+
+      - name: Cache composer dependencies
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: ${{ runner.os }}-composer-
+
+      - name: Install Composer dependencies
+        run: composer install --prefer-dist --optimize-autoloader
+
+      - name: Prepare database
+        run: |
+          php bin/console doctrine:database:create --if-not-exists
+          php bin/console doctrine:schema:update --force
+        env:
+          DATABASE_URL: mysql://root:$MYSQL_ROOT_PASSWORD@127.0.0.1:${{ job.services.mysql.ports['3306'] }}/$MYSQL_DATABASE
+
+      - name: Run functionnal and unit tests
+        run: |
+          mkdir -p ./coverage
+          php -d xdebug.mode=coverage ./vendor/bin/paratest --coverage-html=./coverage --coverage-clover=./coverage/clover.xml
+#          php -d xdebug.mode=coverage ./vendor/bin/coverage-check ./coverage/clover.xml 95
+        env:
+          DATABASE_URL: mysql://root:$MYSQL_ROOT_PASSWORD@127.0.0.1:${{ job.services.mysql.ports['3306'] }}/$MYSQL_DATABASE
