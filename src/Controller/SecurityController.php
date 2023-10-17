@@ -20,4 +20,9 @@ class SecurityController extends AbstractController
             'error' => $error,
         ]);
     }
+
+    #[Route(path: '/se-deconnecter', name: 'security_logout')]
+    public function logout(): void
+    {
+    }
 }
