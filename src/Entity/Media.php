@@ -26,6 +26,11 @@ class Media
     #[Assert\NotBlank]
     private ?string $altText = null;
 
+    public function __toString(): string
+    {
+        return (string) $this->name;
+    }
+
     public function getId(): ?int
     {
         return $this->id;
