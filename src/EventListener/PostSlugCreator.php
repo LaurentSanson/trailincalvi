@@ -17,6 +17,6 @@ class PostSlugCreator
 
     public function prePersist(Post $post, PrePersistEventArgs $event): void
     {
-        $post->setSlug(strtolower($this->slugger->slug((string) $post->getTitle())));
+        $post->setSlug($this->slugger->slug((string) $post->getTitle())->lower());
     }
 }

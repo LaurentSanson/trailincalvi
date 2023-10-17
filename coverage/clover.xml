@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1697563011">
-  <project timestamp="1697563011">
+<coverage generated="1697567236">
+  <project timestamp="1697567236">
+    <file name="/var/www/trailincalvi/src/Controller/HomeController.php">
+      <class name="App\Controller\HomeController" namespace="global">
+        <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="2" coveredelements="2"/>
+      </class>
+      <line num="11" type="method" name="index" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="14" type="stmt" count="1"/>
+      <metrics loc="17" ncloc="17" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="2" coveredelements="2"/>
+    </file>
+    <file name="/var/www/trailincalvi/src/Controller/SecurityController.php">
+      <class name="App\Controller\SecurityController" namespace="global">
+        <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="6" coveredstatements="6" elements="7" coveredelements="7"/>
+      </class>
+      <line num="12" type="method" name="index" visibility="public" complexity="1" crap="1" count="2"/>
+      <line num="15" type="stmt" count="2"/>
+      <line num="16" type="stmt" count="2"/>
+      <line num="18" type="stmt" count="2"/>
+      <line num="19" type="stmt" count="2"/>
+      <line num="20" type="stmt" count="2"/>
+      <line num="21" type="stmt" count="2"/>
+      <metrics loc="24" ncloc="24" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="6" coveredstatements="6" elements="7" coveredelements="7"/>
+    </file>
     <file name="/var/www/trailincalvi/src/Entity/Media.php">
       <class name="App\Entity\Media" namespace="global">
         <metrics complexity="7" methods="7" coveredmethods="7" conditionals="0" coveredconditionals="0" statements="10" coveredstatements="10" elements="17" coveredelements="17"/>
@@ -75,25 +96,25 @@
       </class>
       <line num="27" type="method" name="getId" visibility="public" complexity="1" crap="1" count="1"/>
       <line num="29" type="stmt" count="1"/>
-      <line num="32" type="method" name="getEmail" visibility="public" complexity="1" crap="1" count="1"/>
-      <line num="34" type="stmt" count="1"/>
-      <line num="37" type="method" name="setEmail" visibility="public" complexity="1" crap="1" count="1"/>
-      <line num="39" type="stmt" count="1"/>
-      <line num="41" type="stmt" count="1"/>
+      <line num="32" type="method" name="getEmail" visibility="public" complexity="1" crap="1" count="2"/>
+      <line num="34" type="stmt" count="2"/>
+      <line num="37" type="method" name="setEmail" visibility="public" complexity="1" crap="1" count="2"/>
+      <line num="39" type="stmt" count="2"/>
+      <line num="41" type="stmt" count="2"/>
       <line num="44" type="method" name="getUserIdentifier" visibility="public" complexity="1" crap="1" count="1"/>
       <line num="46" type="stmt" count="1"/>
       <line num="49" type="method" name="getRoles" visibility="public" complexity="1" crap="1" count="1"/>
       <line num="51" type="stmt" count="1"/>
       <line num="53" type="stmt" count="1"/>
       <line num="55" type="stmt" count="1"/>
-      <line num="58" type="method" name="setRoles" visibility="public" complexity="1" crap="1" count="1"/>
-      <line num="60" type="stmt" count="1"/>
-      <line num="62" type="stmt" count="1"/>
-      <line num="65" type="method" name="getPassword" visibility="public" complexity="1" crap="1" count="1"/>
-      <line num="67" type="stmt" count="1"/>
-      <line num="70" type="method" name="setPassword" visibility="public" complexity="1" crap="1" count="1"/>
-      <line num="72" type="stmt" count="1"/>
-      <line num="74" type="stmt" count="1"/>
+      <line num="58" type="method" name="setRoles" visibility="public" complexity="1" crap="1" count="2"/>
+      <line num="60" type="stmt" count="2"/>
+      <line num="62" type="stmt" count="2"/>
+      <line num="65" type="method" name="getPassword" visibility="public" complexity="1" crap="1" count="2"/>
+      <line num="67" type="stmt" count="2"/>
+      <line num="70" type="method" name="setPassword" visibility="public" complexity="1" crap="1" count="2"/>
+      <line num="72" type="stmt" count="2"/>
+      <line num="74" type="stmt" count="2"/>
       <line num="77" type="method" name="eraseCredentials" visibility="public" complexity="1" crap="2" count="0"/>
       <line num="81" type="stmt" count="0"/>
       <metrics loc="83" ncloc="80" classes="1" methods="9" coveredmethods="8" conditionals="0" coveredconditionals="0" statements="14" coveredstatements="13" elements="23" coveredelements="21"/>
@@ -132,18 +153,18 @@
     </file>
     <file name="/var/www/trailincalvi/src/Repository/UserRepository.php">
       <class name="App\Repository\UserRepository" namespace="global">
-        <metrics complexity="3" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="6" coveredstatements="0" elements="8" coveredelements="0"/>
+        <metrics complexity="3" methods="2" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="6" coveredstatements="1" elements="8" coveredelements="2"/>
       </class>
-      <line num="24" type="method" name="__construct" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="26" type="stmt" count="0"/>
+      <line num="24" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="26" type="stmt" count="1"/>
       <line num="32" type="method" name="upgradePassword" visibility="public" complexity="2" crap="6" count="0"/>
       <line num="34" type="stmt" count="0"/>
       <line num="35" type="stmt" count="0"/>
       <line num="38" type="stmt" count="0"/>
       <line num="39" type="stmt" count="0"/>
       <line num="40" type="stmt" count="0"/>
-      <metrics loc="43" ncloc="30" classes="1" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="6" coveredstatements="0" elements="8" coveredelements="0"/>
+      <metrics loc="43" ncloc="30" classes="1" methods="2" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="6" coveredstatements="1" elements="8" coveredelements="2"/>
     </file>
-    <metrics files="8" loc="412" ncloc="380" classes="7" methods="38" coveredmethods="33" conditionals="0" coveredconditionals="0" statements="57" coveredstatements="48" elements="95" coveredelements="81"/>
+    <metrics files="10" loc="453" ncloc="421" classes="9" methods="40" coveredmethods="36" conditionals="0" coveredconditionals="0" statements="64" coveredstatements="56" elements="104" coveredelements="92"/>
   </project>
 </coverage>

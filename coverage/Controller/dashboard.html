@@ -2,7 +2,7 @@
 <html lang="en">
  <head>
   <meta charset="UTF-8">
-  <title>Dashboard for /var/www/trailincalvi/src/EventListener</title>
+  <title>Dashboard for /var/www/trailincalvi/src/Controller</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="../_css/bootstrap.min.css?v=9.2.29" rel="stylesheet" type="text/css">
   <link href="../_css/nv.d3.min.css?v=9.2.29" rel="stylesheet" type="text/css">
@@ -17,7 +17,7 @@
       <nav aria-label="breadcrumb">
        <ol class="breadcrumb">
          <li class="breadcrumb-item"><a href="../index.html">/var/www/trailincalvi/src</a></li>
-         <li class="breadcrumb-item"><a href="index.html">EventListener</a></li>
+         <li class="breadcrumb-item"><a href="index.html">Controller</a></li>
          <li class="breadcrumb-item active">(Dashboard)</li>
 
        </ol>
@@ -155,7 +155,7 @@ $(document).ready(function() {
       .yAxis.tickFormat(d3.format('d'));
 
     d3.select('#classCoverageDistribution svg')
-      .datum(getCoverageDistributionData([0,0,0,0,0,0,0,0,0,0,0,1], "Class Coverage"))
+      .datum(getCoverageDistributionData([0,0,0,0,0,0,0,0,0,0,0,2], "Class Coverage"))
       .transition().duration(500).call(chart);
 
     nv.utils.windowResize(chart.update);
@@ -223,7 +223,7 @@ $(document).ready(function() {
     chart.yAxis.axisLabel('Cyclomatic Complexity');
 
     d3.select('#classComplexity svg')
-      .datum(getComplexityData([[100,2,"<a href=\"PostSlugCreator.php.html#11\">App\\EventListener\\PostSlugCreator<\/a>"]], 'Class Complexity'))
+      .datum(getComplexityData([[100,1,"<a href=\"HomeController.php.html#9\">App\\Controller\\HomeController<\/a>"],[100,1,"<a href=\"SecurityController.php.html#10\">App\\Controller\\SecurityController<\/a>"]], 'Class Complexity'))
       .transition()
       .duration(500)
       .call(chart);
@@ -247,7 +247,7 @@ $(document).ready(function() {
     chart.yAxis.axisLabel('Method Complexity');
 
     d3.select('#methodComplexity svg')
-      .datum(getComplexityData([[100,1,"<a href=\"PostSlugCreator.php.html#14\">App\\EventListener\\PostSlugCreator::__construct<\/a>"],[100,1,"<a href=\"PostSlugCreator.php.html#18\">App\\EventListener\\PostSlugCreator::prePersist<\/a>"]], 'Method Complexity'))
+      .datum(getComplexityData([[100,1,"<a href=\"HomeController.php.html#11\">App\\Controller\\HomeController::index<\/a>"],[100,1,"<a href=\"SecurityController.php.html#12\">App\\Controller\\SecurityController::index<\/a>"]], 'Method Complexity'))
       .transition()
       .duration(500)
       .call(chart);
