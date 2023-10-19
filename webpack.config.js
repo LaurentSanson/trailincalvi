@@ -14,6 +14,22 @@ Encore
     // only needed for CDN's or sub-directory deploy
     //.setManifestKeyPrefix('build/')
 
+	.copyFiles({
+		from: './assets/fonts',
+		to: 'fonts/[path][name].[ext]',
+	})
+	.copyFiles({
+		from: './assets/img',
+		to: 'img/[path][name].[ext]',
+	})
+	.copyFiles({
+		from: './assets/js',
+		to: 'js/[path][name].[ext]',
+	})
+	.copyFiles({
+		from: './assets/scss',
+		to: 'scss/[path][name].[ext]',
+	})
     /*
      * ENTRY CONFIG
      *
@@ -53,7 +69,7 @@ Encore
     })
 
     // enables Sass/SCSS support
-    //.enableSassLoader()
+    .enableSassLoader()
 
     // uncomment if you use TypeScript
     //.enableTypeScriptLoader()
@@ -66,7 +82,7 @@ Encore
     //.enableIntegrityHashes(Encore.isProduction())
 
     // uncomment if you're having problems with a jQuery plugin
-    //.autoProvidejQuery()
+    .autoProvidejQuery()
 ;
 
 module.exports = Encore.getWebpackConfig();

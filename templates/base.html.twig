@@ -1,10 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+        <title>{% block title %}{% endblock %} | Trail in Calvi</title>
+        <meta name="description" content="Trail in Calvi" />
+        <meta name="keywords" content="bootstrap, shop, e-commerce, market, modern, responsive,  business, mobile, bootstrap, html5, css3, js, gallery, slider, touch, creative, clean" />
+        <meta name="author" content="Laurent Sanson" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="apple-touch-icon" sizes="180x180" href="" />
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('build/img/logo.jpg') }}" />
+        <link rel="icon" type="image/png" sizes="16x16" href="" />
+        <meta name="msapplication-TileColor" content="#ffffff" />
+        <meta name="theme-color" content="#ffffff" />
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
@@ -14,6 +21,10 @@
         {% endblock %}
     </head>
     <body>
+        {% include('components/_navbar.html.twig') %}
+
         {% block body %}{% endblock %}
+
+        {% include('components/_footer.html.twig') %}
     </body>
 </html>

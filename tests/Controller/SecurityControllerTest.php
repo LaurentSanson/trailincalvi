@@ -21,7 +21,7 @@ class SecurityControllerTest extends AppTestCase
         $user = UserBuilder::for($this)->build();
 
         $crawler = $this->client->request(Request::METHOD_GET, '/se-connecter');
-        $form = $crawler->filter('form[name=login]')->form([
+        $form = $crawler->selectButton('Connectez-vous')->form([
             '_username' => $user->getEmail(),
             '_password' => $user->getPassword(),
         ]);
