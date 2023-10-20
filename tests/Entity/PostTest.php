@@ -26,4 +26,15 @@ class PostTest extends AppTestCase
         self::assertInstanceOf(DateTime::class, $post->getUpdatedAt());
         self::assertInstanceOf(Media::class, $post->getFeaturedImage());
     }
+
+    public function testItUpdatesPostSlug(): void
+    {
+        /** @var Post $post */
+        $post = PostBuilder::for($this)->any();
+
+        $post->setTitle('new Title');
+        $this->em->flush();
+
+        self::assertSame('new-title', $post->getSlug());
+    }
 }

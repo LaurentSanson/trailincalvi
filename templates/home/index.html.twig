@@ -29,36 +29,20 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-6 col-lg-4">
-                    <div class="card card-minimal">
-                        <a href="" class="card-img-container">
-                            <img class="card-img" src="" alt="Card image cap">
-                        </a>
-                        <div class="card-body">
-                            <h5 class="card-title"><a href="">Planning amazing weddings that you won’t forget.</a></h5>
+                {% for post in posts %}
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card card-minimal h-100">
+                            <a href="{{ path('post_detail', {slug: post.slug}) }}" class="card-img-container">
+                                <img class="card-img" src="{{ asset('uploads/images/' ~ post.featuredImage.filename) }}" alt="{{ post.featuredImage.altText }}">
+                            </a>
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="{{ path('post_detail', {slug: post.slug}) }}">{{ post.title }}</a>
+                                </h5>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card card-minimal">
-                        <a href="" class="card-img-container">
-                            <img class="card-img" src="" alt="Card image cap">
-                        </a>
-                        <div class="card-body">
-                            <h5 class="card-title"><a href="">Planning amazing weddings that you won’t forget.</a></h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card card-minimal">
-                        <a href="" class="card-img-container">
-                            <img class="card-img" src="" alt="Card image cap">
-                        </a>
-                        <div class="card-body">
-                            <h5 class="card-title"><a href="">Planning amazing weddings that you won’t forget.</a></h5>
-                        </div>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </section>

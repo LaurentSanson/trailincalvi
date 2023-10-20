@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Actualités{% endblock %}
+
+{% block navbar %}
+    {% include('components/_navbar-light.html.twig') %}
+{% endblock %}
+
+{% block body %}
+    <section class="hero hero-with-header pb-0">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col">
+                    <h1>Nos dernières actualités</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col">
+                    <ul class="masonry row gutter-2">
+                        {% for post in posts %}
+                            <li class="col-md-6 col-lg-4">
+                                <article class="tile {% if loop.index is not even %}tile-long{% endif %}">
+                                    <div class="tile-image" style="background-image: url({{ asset('uploads/images/' ~ post.featuredImage.filename) }})"></div>
+                                    <a href="{{ path('post_detail', {slug: post.slug}) }}" class="tile-content">
+                                        <div class="tile-footer">
+                                            <h3>{{ post.title }}</h3>
+                                        </div>
+                                    </a>
+                                </article>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

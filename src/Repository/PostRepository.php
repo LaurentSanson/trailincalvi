@@ -20,4 +20,27 @@ class PostRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Post::class);
     }
+
+    public function findLastThreePublished(): mixed
+    {
+        return $this
+            ->createQueryBuilder('p')
+            ->where('p.isPublished = 1')
+            ->orderBy('p.createdAt', 'DESC')
+            ->setMaxResults(3)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+    public function findAllPublished(): mixed
+    {
+        return $this
+            ->createQueryBuilder('p')
+            ->where('p.isPublished = 1')
+            ->orderBy('p.createdAt', 'DESC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 }

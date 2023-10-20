@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block body %}
+    <section class="p-0">
+        <div class="swiper-container text-white"
+             data-top-top="transform: translateY(0px);"
+             data-top-bottom="transform: translateY(250px);">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide vh-100">
+                    <div class="image image-overlay image-zoom" style="background-image:url({{ asset('uploads/images/' ~ post.featuredImage.filename) }})"></div>
+                    <div class="caption">
+                        <div class="container">
+                            <div class="row align-items-center vh-100">
+                                <div class="col-md-8" data-swiper-parallax-y="-250%">
+                                    <span class="eyebrow mb-2">Travel</span>
+                                    <h1 class="display-2">{{ post.title }}</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-footer mb-5">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col text-center">
+                                <div class="mouse"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-10 col-lg-8">
+                    {{ post.content | raw}}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
