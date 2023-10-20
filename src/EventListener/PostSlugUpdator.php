@@ -18,7 +18,9 @@ class PostSlugUpdator
     public function preUpdate(Post $post, PreUpdateEventArgs $event): void
     {
         if ($event->hasChangedField('title')) {
-            $post->setSlug($this->slugger->slug((string) $event->getNewValue('title'))->lower());
+            /** @var string $newTitle */
+            $newTitle = $event->getNewValue('title');
+            $post->setSlug($this->slugger->slug($newTitle)->lower());
         }
     }
 }

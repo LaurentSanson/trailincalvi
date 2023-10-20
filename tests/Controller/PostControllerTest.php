@@ -24,6 +24,5 @@ class PostControllerTest extends AppTestCase
         $this->client->request(Request::METHOD_GET, '/actualites/' . $post->getSlug());
 
         self::assertResponseIsSuccessful();
-
     }
 }
