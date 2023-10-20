@@ -22,11 +22,11 @@ services:
       context: .
     container_name: php-container
     volumes:
-      - ./:/var/www/exemple
+      - ./:/var/www/trailincalvi
     ports:
       - "9000:9000"
     environment:
-      DATABASE_URL: mysql://lcdt:lcdt@database/exemple?serverVersion=${MYSQL_VERSION:-13}
+      DATABASE_URL: mysql://tic:tic@database/trailincalvi?serverVersion=${MYSQL_VERSION:-13}
       APP_ENV: prod
 
   nginx:
