@@ -29,4 +29,11 @@ class SecurityControllerTest extends AppTestCase
 
         self::assertResponseStatusCodeSame(Response::HTTP_FOUND);
     }
+
+    public function testItShowsConfidentialityPage(): void
+    {
+        $this->client->request(Request::METHOD_GET, '/politique-de-confidentialite');
+
+        self::assertResponseIsSuccessful();
+    }
 }

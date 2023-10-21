@@ -26,4 +26,10 @@ class SecurityController extends AbstractController
     public function logout(): void
     {
     }
+
+    #[Route('politique-de-confidentialite', name: 'security_confidentiality')]
+    public function confidentiality(): Response
+    {
+        return $this->render('security/confidentiality.html.twig');
+    }
 }
