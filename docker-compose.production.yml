@@ -40,8 +40,8 @@ services:
     volumes:
       - ./:/var/www/trailincalvi
       - .docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
-      - .docker/certbot/www:/var/www/certbot
-      - .docker/certbot/conf/:/etc/letsencrypt
+      - .docker/certbot/www:/var/www/certbot:ro
+      - .docker/certbot/conf/:/etc/letsencrypt:ro
     depends_on:
       - php
       - database
@@ -53,8 +53,8 @@ services:
     container_name: cerbot-container
     entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
     volumes:
-      - .docker/certbot/www/:/var/www/certbot
-      - .docker/certbot/conf/:/etc/letsencrypt
+      - .docker/certbot/www/:/var/www/certbot:rw
+      - .docker/certbot/conf/:/etc/letsencrypt:rw
 
 volumes:
   db-data:
