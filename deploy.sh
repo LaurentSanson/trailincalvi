@@ -3,10 +3,10 @@ set -e
 
 cd $(dirname $(dirname $0))
 
-DOCKER_COMPOSE=${DOCKER_COMPOSE:-docker-compose}
+DOCKER_COMPOSE=${DOCKER_COMPOSE:-docker compose}
 
 #Stop server
-docker-compose down --remove-orphans
+docker compose down --remove-orphans
 
 if [ -d vendor ]; then
     sudo rm -rf vendor

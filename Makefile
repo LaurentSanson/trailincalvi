@@ -7,13 +7,13 @@ project-name := Trail in Calvi
 install: composer.lock.installed ## Install project
 
 up:
-	@docker-compose up -d
+	@docker compose up -d
 
 down:
-	@docker-compose down --remove-orphans --volumes
+	@docker compose down --remove-orphans --volumes
 
 build:
-	@docker-compose build --pull --no-cache
+	@docker compose build --pull --no-cache
 
 composer.lock.installed:
 	@./php composer install

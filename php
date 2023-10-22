@@ -4,4 +4,4 @@ set -e
 
 cd `dirname $0`
 
-docker-compose exec php $@
+docker compose exec php $@
