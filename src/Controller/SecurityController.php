@@ -18,6 +18,7 @@ class SecurityController extends AbstractController
         return $this->render('@EasyAdmin/page/login.html.twig', [
             'last_username' => $lastUsername,
             'error' => $error,
+            'target_path' => $this->generateUrl('admin'),
         ]);
     }
 
